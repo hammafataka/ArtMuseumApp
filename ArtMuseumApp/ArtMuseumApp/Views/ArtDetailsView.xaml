@@ -1,0 +1,121 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArtMuseumApp.View.ArtDetailsView"
+             Title="Art Details"
+             BackgroundColor="Black"
+             Shell.TitleColor="#CF5F08"
+             Shell.BackgroundColor="Black">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Favorite" Command="{Binding AddItemCommand}"/>
+        <ToolbarItem Text="share" Command="{Binding ShareItemCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout>
+            <Grid RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Source="{Binding localobject.webImage.url}"
+                    Aspect="AspectFit"
+                    />
+
+                <Label
+                    Grid.Row="1"
+                    Text="Title:"
+                    FontSize="25"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand"/>
+                <Label
+                    Grid.Row="2"
+                    Text="{Binding localobject.title}"
+                    FontSize="25"
+                    TextColor="Gray"
+                    HorizontalOptions="CenterAndExpand"
+                    FontAttributes="Italic"/>
+
+                <Label 
+                    Grid.Row="3"
+                    Text="Owner:"
+                    FontSize="25"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand"/>
+
+                <Label 
+                    Grid.Row="4"
+                    Text="{Binding localobject.principalOrFirstMaker}"
+                    FontSize="25"
+                    TextColor="Gray"
+                    HorizontalOptions="CenterAndExpand"
+                    FontAttributes="Italic"/>
+
+                <Label 
+                    Grid.Row="5"
+                    Text="Full Title:"
+                    FontSize="25"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand"/>
+
+                <Label 
+                    Grid.Row="6"
+                    Text="{Binding localobject.longTitle}"
+                    FontSize="25"
+                    TextColor="Gray"
+                    HorizontalOptions="CenterAndExpand"
+                    FontAttributes="Italic"
+                    />
+                <Label 
+                    Grid.Row="7"
+                    Text="Presenting Date:"
+                    FontSize="25"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand"/>
+
+                <Label 
+                    Grid.Row="8"
+                    Text="{Binding localobject.dating.presentingDate}"
+                    FontSize="25"
+                    TextColor="Gray"
+                    HorizontalOptions="CenterAndExpand"
+                    FontAttributes="Italic"
+                    />
+
+                <Label 
+                    Grid.Row="9"
+                    Text="More info at:"
+                    FontSize="25"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand"/>
+
+                <Label 
+                    Grid.Row="10"
+                    Text="{Binding localobject.links.search}"
+                    FontSize="25"
+                    TextColor="Gray"
+                    HorizontalOptions="CenterAndExpand"
+                    FontAttributes="Italic"
+                    />
+
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArtMuseumApp.Views.FavoritesView"
+             BackgroundColor="Black"
+             Title="Favorites"
+             Shell.TitleColor="#CF5F08"
+             Shell.BackgroundColor="Black">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Command="{Binding DeleteItemCommand}"/>
+        <ToolbarItem Text="share" Command="{Binding ShareItemCommand}"/>
+    </ContentPage.ToolbarItems>
+            <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding sqlart}"
+                                BackgroundColor="#42362D"
+                            SelectedItem="{Binding selectedArt}"
+                                EmptyView="No items to display"
+                                SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="10"
+                                           Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="400"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#631D0F" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Image 
+                               Grid.Row="0"
+                               Source="{Binding imageUrl}"
+                               Aspect="AspectFill"
+                               />
+
+                            <Label
+                                Grid.Row="1"
+                                Text="Title:"
+                                FontSize="25"
+                                TextColor="White"
+                                HorizontalOptions="CenterAndExpand"/>
+
+
+                            <Label 
+                                Grid.Row="2"
+
+                                Text="{Binding title}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Start"
+                                TextColor="Silver"/>
+                            <Label 
+                                Grid.Row="3"
+                                Text="Owner:"
+                                FontSize="25"
+                                TextColor="White"
+                                HorizontalOptions="CenterAndExpand"/>
+                            <Label 
+                                Grid.Row="4"
+
+                                Text="{Binding principalOrFirstMaker}"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                TextColor="Silver"/>
+
+                            <Label 
+                                Grid.Row="5"
+                                Text="Full Title:"
+                                FontSize="25"
+                                TextColor="White"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label 
+                                Grid.Row="6"
+                                Text="{Binding longTitle}"
+                                FontSize="25"
+                                TextColor="Gray"
+                                HorizontalOptions="CenterAndExpand"
+                                FontAttributes="Italic"
+                                />
+                            <Label 
+                                Grid.Row="7"
+                                Text="Presenting Date:"
+                                FontSize="25"
+                                TextColor="White"
+                                HorizontalOptions="CenterAndExpand"/>
+
+                            <Label 
+                                Grid.Row="8"
+                                Text="{Binding presentingDate}"
+                                FontSize="25"
+                                TextColor="Gray"
+                                HorizontalOptions="CenterAndExpand"
+                                FontAttributes="Italic"
+                                />
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

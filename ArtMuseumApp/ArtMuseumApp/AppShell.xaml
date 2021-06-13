@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="ArtMuseumApp.AppShell"
+       xmlns:view="clr-namespace:ArtMuseumApp.Views"
+       ForegroundColor="#CF5F08"
+       FlyoutBackgroundColor="#221E1D"
+       TabBarBackgroundColor="Black"
+       TabBarForegroundColor="Brown"
+       TabBarTitleColor="#CF5F08"
+       TabBarUnselectedColor="Gray"
+       >
+
+
+
+<FlyoutItem FlyoutDisplayOptions="AsMultipleItems" >
+        <Tab Title="Browse Collections" >
+            <ShellContent  ContentTemplate="{DataTemplate view:ArtListViews}" />
+        </Tab>
+
+        <Tab Title="Favorites"  >
+            <ShellContent ContentTemplate="{DataTemplate view:FavoritesView}" />
+        </Tab>
+    </FlyoutItem>
+</Shell>
